@@ -1,0 +1,10 @@
+TODO list:
+
+TODO List will be added to over time
+TODO Completed tasks will have an 'X' before their number
+
+1: Endless track generation - likely requires an engine for testing if the track is possible, can simply use text for map-making
+
+2: Multiplayer capability - split screen, points awarded to player for finishing track seconds before other player - next track loading waits for both players to finish
+
+3: Buttons on title screen to switch from easy/medium/hard mode without using system arg variables
