@@ -1,11 +1,13 @@
 """Module for showing title screen and playing title music."""
 import pygame
 import pygame.mixer
+import pygame_widgets
 
 from text_label import TYPEFACE_3D
 from sliding_label import SlidingLabel, SLIDE_RIGHT, SLIDE_LEFT
 from fading_label import FadingLabel
 from blinking_label import BlinkingLabel
+from pygame_widgets import *
 
 MUSIC_FILENAME = 'title.ogg'
 BACKGROUND_FILENAME = 'bg_08.png'
@@ -20,16 +22,27 @@ START_COLOR_PRIMARY = (109, 207, 246)
 START_COLOR_SECONDARY = (0, 0, 0)
 SLIDING_SPEED = 16
 
-Easy_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
-Medium_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
-Hard_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
-
 #Button Class
 class Title_Buttons():
     def __init__(self, x, y, image):
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
+
+        #define button variables
+        Easy_Mode_Button = pygame_widgets.button.Button
+        Medium_Mode_Button = pygame_widgets.button.Button
+        Hard_Mode_Button = pygame_widgets.button.Button
+
+        #load button images
+        Easy_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
+        Medium_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
+        Hard_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
+        
+        #create buttons
+        Easy_Mode_Button = Button(100, 200, Button_Textures_Landscape_Rectangle.png)
+        Medium_Mode_Button = Button(100, 400, Button_Textures_Landscape_Rectangle.png)
+        Hard_Mode_Button = Button(100, 600, Button_Textures_Landscape_Rectangle.png)
 
     def draw(self):
         #draw button on screen

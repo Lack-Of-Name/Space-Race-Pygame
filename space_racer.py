@@ -5,8 +5,10 @@ from random import randint
 from statistics import mean
 
 import pygame
+import pygame_widgets
 import pygame.mixer
 from pygame.time import Clock
+from pygame_widgets import *
 
 import sound_box
 from view_point import ViewPoint
