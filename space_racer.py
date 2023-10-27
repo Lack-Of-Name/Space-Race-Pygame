@@ -106,6 +106,7 @@ class SpaceRacer():
         self.state = STATE_LEVEL_STARTING
         self.level_start_screen.set_level_number(self.level.get_level())
         self.level_start_screen.set_subtitle_text(self.level.get_description())
+        self.stats.reset()
         self.level_start_screen.restart()
 
     def _init_level_playing(self):
