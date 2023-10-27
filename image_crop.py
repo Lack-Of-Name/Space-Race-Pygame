@@ -1,6 +1,7 @@
 """Crops the image: removes transparent area near the edges."""
 import pygame
 
+
 def image_crop(image):
     """Input: pygame.Surface.
     Returns a dict in format:
@@ -20,7 +21,7 @@ def image_crop(image):
         for y in range(0, rect.height):
             if image.get_at((x, y)).a > 0:
                 x_left = x
-                x = rect.width # For breaking outer loop
+                x = rect.width  # For breaking outer loop
                 break
         x += 1
 
@@ -31,7 +32,7 @@ def image_crop(image):
         for y in range(0, rect.height):
             if image.get_at((x, y)).a > 0:
                 x_right = x
-                x = 0 # For breaking outer loop
+                x = 0  # For breaking outer loop
                 break
         x -= 1
 
@@ -42,7 +43,7 @@ def image_crop(image):
         for x in range(0, rect.width):
             if image.get_at((x, y)).a > 0:
                 y_top = y
-                y = rect.height # For breaking outer loop
+                y = rect.height  # For breaking outer loop
                 break
         y += 1
 
@@ -53,7 +54,7 @@ def image_crop(image):
         for x in range(0, rect.width):
             if image.get_at((x, y)).a > 0:
                 y_bottom = y
-                y = 0 # For breaking outer loop
+                y = 0  # For breaking outer loop
                 break
         y -= 1
 

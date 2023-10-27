@@ -1,5 +1,4 @@
 """Module for showing level title screen before game level starts."""
-import pygame
 
 from fading_label import FadingLabel, STYLE_EXPOSE, STYLE_FADE
 
@@ -12,6 +11,7 @@ COLOR_SUBTITLE = (109, 207, 246)
 # Delay in frames between vanishing all the text labels and
 # proceeding to next game screen
 MAX_DELAY = 60
+
 
 class LevelStartScreen():
     def __init__(self, scr, level_number=0, subtitle_text=''):

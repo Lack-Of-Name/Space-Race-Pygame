@@ -9,6 +9,7 @@ TYPEFACE_3D = 1
 DEFAULT_COLOR = (255, 255, 255)
 DEFAULT_SIZE = 24
 
+
 class TextLabel():
     """Stores text attributes (such as text itself, color, size,
     typeface) and renders the text to specified position.

@@ -1,6 +1,4 @@
 """Module for storing and rendering game statistics"""
-import sys
-import pygame
 
 from sound_box import get_sound_box
 from text_label import TextLabel
@@ -11,6 +9,7 @@ LEVEL_COMPLETE_PTS = 2000
 EXTRA_LIFE_PTS = 10000
 TEXT_OFFSET = 16
 STARTING_LIVES = 3
+
 
 class GameStats():
     """The class encapsulates general game parameters: player's score

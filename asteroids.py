@@ -2,11 +2,9 @@
 from random import randint, choice
 
 import pygame
-from pygame.sprite import Group
 
 from sound_box import get_sound_box
 import explosions
-import track
 from animated_sprite import AnimatedSprite
 from masked_sprite import MaskedSprite
 from map import GRID_SIZE, tile_to_abs

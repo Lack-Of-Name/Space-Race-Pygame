@@ -1,9 +1,8 @@
 """Module for rendering animated stars."""
 from random import randint
 
-import pygame
-
 from animated_sprite import AnimatedSprite
+
 
 class Star(AnimatedSprite):
     """The class represents animated star which has z-coordinate

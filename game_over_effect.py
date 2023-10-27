@@ -1,5 +1,4 @@
 """Module for rendering 'game over' animation effect."""
-import pygame
 
 from sliding_label import SlidingLabel, SLIDE_BOTTOM
 from blinking_label import BlinkingLabel
@@ -9,6 +8,7 @@ COLOR_PRIMARY = (121, 0, 0)
 COLOR_SECONDARY = (242, 108, 79)
 TEXT_MESSAGE = 'GAME OVER'
 SLIDING_SPEED = 4
+
 
 class GameOverEffect():
     def __init__(self, scr):

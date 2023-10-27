@@ -1,6 +1,4 @@
 """Module for showing title screen and playing title music."""
-import sys
-import os
 import pygame
 import pygame.mixer
 import pygame_widgets
@@ -93,7 +91,7 @@ class Title_Buttons():
         game_stats.STARTING_LIVES = 1
         ship.SHIP_MOVEMENT = 15
         game_level.speed_difficulty = 9
-        laser.CHARGE_MAX = 55
+        laser.CHARGE_MAX = 60
         self.mode = "hard"
 
     def set_fullscreen(self):

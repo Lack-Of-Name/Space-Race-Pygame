@@ -1,6 +1,5 @@
 """Module introduces FadingLabel class which can render fading or
 exposing on-screen text."""
-import pygame
 
 from text_label import DEFAULT_COLOR, DEFAULT_SIZE, TYPEFACE_NORMAL
 from animated_label import AnimatedLabel

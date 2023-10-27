@@ -25,6 +25,7 @@ STAR_FILES = (
 # Maximum stars generated
 STAR_LIMIT = 60
 
+
 class Stars():
     """The class encapsulates a list of star animations (Star class
     instances) and images for animations. It provides methods for

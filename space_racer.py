@@ -1,22 +1,19 @@
 """Main program module. It pulls all other game modules together and
 ensures running the game."""
 import sys
-import os
-from random import randint
 from statistics import mean
 
 import pygame
 import pygame_widgets
 import pygame.mixer
 from pygame.time import Clock
-from pygame_widgets import *
 
 import sound_box
 from view_point import ViewPoint
 from track import Track
 from game_level import GameLevel
 from game_stats import GameStats
-from game_stats import ASTEROID_HIT_PTS, LEVEL_COMPLETE_PTS, EXTRA_LIFE_PTS
+from game_stats import ASTEROID_HIT_PTS, LEVEL_COMPLETE_PTS
 from ship import Ship
 from ship import STATUS_INACTIVE as SHIP_STATUS_INACTIVE
 from ship import STATUS_NORMAL as SHIP_STATUS_NORMAL

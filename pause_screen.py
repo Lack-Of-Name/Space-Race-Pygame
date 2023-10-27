@@ -12,6 +12,7 @@ BOTTOM_TEXT = 'PRESS ENTER FOR QUIT OR ESC FOR UNPAUSE'
 # Fading factor for the game screenshot
 SCREEN_ALPHA = 1
 
+
 class PauseScreen():
     def __init__(self, scr):
         """Input parameters:

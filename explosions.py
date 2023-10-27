@@ -2,7 +2,6 @@
 from random import randint
 
 import pygame
-from pygame.sprite import Group
 
 from animated_sprite import AnimatedSprite
 
@@ -22,6 +21,7 @@ SMALL_EXPLOSION_IND = 0
 BLAST_EXPLOSION_IND = 1
 BIG_EXPLOSION_IND = 2
 DOUBLE_EXPLOSION_IND = 3
+
 
 class Explosions():
     def __init__(self, scr, view_point):

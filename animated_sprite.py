@@ -2,7 +2,6 @@
 import pygame
 from pygame.sprite import Sprite
 
-from view_point import ViewPoint
 
 class AnimatedSprite(Sprite):
     """Encapsulates an image with animation frames and provides methods

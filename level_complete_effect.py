@@ -1,5 +1,4 @@
 """Module for rendering 'level complete' animation effect."""
-import pygame
 
 from sliding_label import SlidingLabel, SLIDE_RIGHT
 from blinking_label import BlinkingLabel
@@ -9,6 +8,7 @@ COLOR_PRIMARY = (0, 84, 166)
 COLOR_SECONDARY = (255, 255, 255)
 TEXT_MESSAGE = 'LEVEL COMPLETE'
 SLIDING_SPEED = 16
+
 
 class LevelCompleteEffect():
     def __init__(self, scr):

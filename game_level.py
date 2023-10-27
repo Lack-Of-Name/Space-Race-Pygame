@@ -1,7 +1,6 @@
 """Module providing data and settings for game levels."""
 import pygame
 import pygame.mixer
-import sys
 
 from map import map_read
 

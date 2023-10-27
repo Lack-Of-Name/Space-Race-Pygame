@@ -4,10 +4,8 @@ import pygame
 
 from sound_box import get_sound_box
 import explosions
-from view_point import ViewPoint
 from laser import Laser
 from animated_sprite import AnimatedSprite
-import sys
 
 SHIP_FILE = 'ship.png'
 LASER_OFFSET_X = 4
@@ -28,6 +26,7 @@ PROGRESS_MAX = 90
 EXPLOSIONS_MAX = 3
 BLINKING_GAP = 5
 SHIP_MOVEMENT = 6
+
 
 class Ship():
     """The ship class encapsulates absolute coordinates (x, y) of the

@@ -24,6 +24,7 @@ ENDING_TEXT = (
     'ANYWAY THANK YOU FOR PLAYING!',
     )
 
+
 class EndingScreen():
     def __init__(self, scr, score=0):
         """Input parameters:

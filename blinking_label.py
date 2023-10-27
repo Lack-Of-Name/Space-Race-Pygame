@@ -1,9 +1,9 @@
 """Module introduces BlinkingLabel class which can render blinking
 on-screen text."""
-import pygame
 
 from text_label import DEFAULT_COLOR, DEFAULT_SIZE, TYPEFACE_NORMAL
 from animated_label import AnimatedLabel
+
 
 class BlinkingLabel(AnimatedLabel):
     """This type of label implements blinking animation effect. The text

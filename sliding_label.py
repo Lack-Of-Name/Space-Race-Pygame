@@ -1,6 +1,5 @@
 """Module introduces SlidingLabel class which can render moving
 on-screen text."""
-import pygame
 
 from text_label import DEFAULT_COLOR, DEFAULT_SIZE, TYPEFACE_NORMAL
 from animated_label import AnimatedLabel
@@ -9,6 +8,7 @@ SLIDE_RIGHT = 0
 SLIDE_LEFT = 1
 SLIDE_TOP = 2
 SLIDE_BOTTOM = 3
+
 
 class SlidingLabel(AnimatedLabel):
     """This type of label implements moving animation effect. The text

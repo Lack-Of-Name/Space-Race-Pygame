@@ -26,13 +26,16 @@ TILE_TOPLEFT_MIDBOT = 17
 TILE_TOPLEFT_MIDRIGHT = 18
 TILE_TOPRIGHT = 19
 
+
 def tile_to_abs(coord):
     """Converts map tile coordinate to absolute coordinate."""
     return float(coord * GRID_SIZE)
 
+
 def abs_to_tile(coord):
     """Converts absolute coordinate to map tile coordinate."""
     return int(coord) // GRID_SIZE
+
 
 def _recognize_pattern(left=None, topleft=None, top=None, topright=None,
                        right=None, bottomright=None, bottom=None,
@@ -65,6 +68,7 @@ def _recognize_pattern(left=None, topleft=None, top=None, topright=None,
         return TILE_TOPLEFT_MIDBOT
     else:
         return None
+
 
 def map_read(filename):
     """Reads game level map from special-formatted text file and

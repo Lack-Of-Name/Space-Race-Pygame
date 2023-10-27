@@ -31,6 +31,7 @@ EXTRA_LIFE_FILE = 'extra_life.wav'
 
 sound_box = None
 
+
 class SoundBox():
     def __init__(self):
         self.explosion_sounds = []
@@ -74,6 +75,7 @@ def init():
     """Initializes SoundBox instance for further using."""
     global sound_box
     sound_box = SoundBox()
+
 
 def get_sound_box():
     """Returns SoundBox singleton."""

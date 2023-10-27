@@ -1,7 +1,7 @@
 """Module which provides animations with bitmasks."""
-import pygame
 
 from animated_sprite import AnimatedSprite
+
 
 class MaskedSprite(AnimatedSprite):
     """The class extends functionality of the AnimatedSprite base class

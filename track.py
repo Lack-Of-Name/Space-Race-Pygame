@@ -28,6 +28,7 @@ TILE_FILES = (
     '19_tile_topright.png',
     )
 
+
 class Track():
     """The class provides methods for drawing a race track and finding
     collisions with player space ship. It encapsulates all the images

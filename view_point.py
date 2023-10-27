@@ -24,12 +24,12 @@ Absolute coordinates are floats and are used for storing game objects
 positions. Screen coordinates are integers and are used for drawing
 game objects to the screen.
 """
-import pygame
 
 from map import GRID_SIZE
 
 # Min. distance between view point and trace point to start moving view point
 TRACE_OFFSET = 2 * GRID_SIZE
+
 
 class ViewPoint():
     """Class which works as game 'camera' and provides methods for

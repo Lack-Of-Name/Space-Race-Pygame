@@ -1,6 +1,5 @@
 """Module for drawing laser animated effect."""
 import pygame
-import sys
 
 from sound_box import get_sound_box
 from animated_sprite import AnimatedSprite
@@ -11,6 +10,7 @@ CHARGE_MAX = 50
 LASER_FRAME_COLS = 4
 LASER_FRAME_ROWS = 3
 LASER_FILE = 'laser.png'
+
 
 class Laser(AnimatedSprite):
     """The class represents laser animated effect. It encapsulates
