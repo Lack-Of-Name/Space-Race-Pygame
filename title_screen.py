@@ -20,6 +20,26 @@ START_COLOR_PRIMARY = (109, 207, 246)
 START_COLOR_SECONDARY = (0, 0, 0)
 SLIDING_SPEED = 16
 
+Easy_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
+Medium_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
+Hard_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
+
+#Button Class
+class Title_Buttons():
+    def __init__(self, x, y, image):
+        self.image = image
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x, y)
+
+    def draw(self):
+        #draw button on screen
+        screen.blit(self.image, (self.rect.x, self.rect.y))
+
+#create buttons
+Easy_Mode_Button = Button(100, 200, Button_Textures_Landscape_Rectangle.png)
+Medium_Mode_Button = Button(100, 400, Button_Textures_Landscape_Rectangle.png)
+Hard_Mode_Button = Button(100, 600, Button_Textures_Landscape_Rectangle.png)
+
 class TitleScreen():
     def __init__(self, scr, view_point, stars):
         """Input parameters:
