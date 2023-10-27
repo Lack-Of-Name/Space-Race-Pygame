@@ -7,7 +7,7 @@ from text_label import TYPEFACE_3D
 from sliding_label import SlidingLabel, SLIDE_RIGHT, SLIDE_LEFT
 from fading_label import FadingLabel
 from blinking_label import BlinkingLabel
-from pygame_widgets import *
+from pygame_widgets import button
 
 MUSIC_FILENAME = 'title.ogg'
 BACKGROUND_FILENAME = 'bg_08.png'
@@ -24,34 +24,21 @@ SLIDING_SPEED = 16
 
 #Button Class
 class Title_Buttons():
-    def __init__(self, x, y, image):
-        self.image = image
-        self.rect = self.image.get_rect()
-        self.rect.topleft = (x, y)
+    def __init__(self, scr):
+        self.scr = scr
 
-        #define button variables
-        Easy_Mode_Button = pygame_widgets.button.Button
-        Medium_Mode_Button = pygame_widgets.button.Button
-        Hard_Mode_Button = pygame_widgets.button.Button
-
-        #load button images
-        Easy_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
-        Medium_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
-        Hard_Mode_Button = pygame.image.load('img\Button_Textures_Landscape_Rectangle.png').convert_alpha()
-        
-        #create buttons
-        Easy_Mode_Button = Button(100, 200, Button_Textures_Landscape_Rectangle.png)
-        Medium_Mode_Button = Button(100, 400, Button_Textures_Landscape_Rectangle.png)
-        Hard_Mode_Button = Button(100, 600, Button_Textures_Landscape_Rectangle.png)
+        # create buttons
+        self.Easy_Mode_Button = pygame_widgets.button.Button(self.scr, 25,100, 218, 100)
+        self.Medium_Mode_Button = pygame_widgets.button.Button(self.scr, 275, 100, 218, 100)
+        self.Hard_Mode_Button = pygame_widgets.button.Button(self.scr, 525,100, 218, 100)
+        self.fullscreen_button = pygame_widgets.button.Button(self.scr, 775, 100, 218, 100)
 
     def draw(self):
-        #draw button on screen
-        screen.blit(self.image, (self.rect.x, self.rect.y))
+        self.Easy_Mode_Button.draw()
+        self.Medium_Mode_Button.draw()
+        self.Hard_Mode_Button.draw()
+        self.fullscreen_button.draw()
 
-#create buttons
-Easy_Mode_Button = Button(100, 200, Button_Textures_Landscape_Rectangle.png)
-Medium_Mode_Button = Button(100, 400, Button_Textures_Landscape_Rectangle.png)
-Hard_Mode_Button = Button(100, 600, Button_Textures_Landscape_Rectangle.png)
 
 class TitleScreen():
     def __init__(self, scr, view_point, stars):
