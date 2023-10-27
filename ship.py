@@ -10,15 +10,8 @@ from animated_sprite import AnimatedSprite
 import sys
 
 SHIP_FILE = 'ship.png'
-if '--easymode' in sys.argv:
-    SHIP_MOVEMENT = 5
-elif '--hardmode' in sys.argv:
-    SHIP_MOVEMENT = 15
-else:
-    SHIP_MOVEMENT = 6
 LASER_OFFSET_X = 4
 LASER_OFFSET_Y = 64
-
 JET_FILE = 'jet.png'
 JET_FRAME_COLS = 8
 JET_FRAME_ROWS = 4
@@ -34,7 +27,7 @@ STATUS_AUTO = 4
 PROGRESS_MAX = 90
 EXPLOSIONS_MAX = 3
 BLINKING_GAP = 5
-
+SHIP_MOVEMENT = 6
 
 class Ship():
     """The ship class encapsulates absolute coordinates (x, y) of the
