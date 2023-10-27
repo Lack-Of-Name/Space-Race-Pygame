@@ -6,18 +6,11 @@ from sound_box import get_sound_box
 from text_label import TextLabel
 
 
-
-if '--easymode' in sys.argv:
-    STARTING_LIVES = 30
-elif '--hardmode' in sys.argv:
-    STARTING_LIVES = 1
-else:
-    STARTING_LIVES = 3
-
 ASTEROID_HIT_PTS = 100
 LEVEL_COMPLETE_PTS = 2000
 EXTRA_LIFE_PTS = 10000
 TEXT_OFFSET = 16
+STARTING_LIVES = 3
 
 class GameStats():
     """The class encapsulates general game parameters: player's score
