@@ -273,12 +273,15 @@ class SpaceRacer():
         if self.state == STATE_TITLE:
             self.title_screen.draw()
             self.title_button.draw()
+            pygame.mouse.set_visible(True)
+            pygame_widgets.update(pygame.event.get())
 
         if self.state == STATE_PAUSE:
             self.pause_screen.draw()
 
         if self.state == STATE_LEVEL_STARTING:
             self.level_start_screen.draw()
+            pygame.mouse.set_visible(False)
 
         if self.state in (STATE_LEVEL_PLAYING, STATE_LEVEL_FINISHING,
                           STATE_GAME_OVER):

@@ -22,16 +22,23 @@ START_COLOR_PRIMARY = (109, 207, 246)
 START_COLOR_SECONDARY = (0, 0, 0)
 SLIDING_SPEED = 16
 
-#Button Class
+
+# Button Class
+def test():
+    print("Test")
+
+
 class Title_Buttons():
     def __init__(self, scr):
         self.scr = scr
-
+        self.Easy_Mode_img = pygame.image.load("img/Button_Textures_Landscape_Rectangle.png")
+        self.Easy_Mode_img = pygame.transform.scale(self.Easy_Mode_img, (218, 100))
         # create buttons
-        self.Easy_Mode_Button = pygame_widgets.button.Button(self.scr, 25,100, 218, 100)
-        self.Medium_Mode_Button = pygame_widgets.button.Button(self.scr, 275, 100, 218, 100)
-        self.Hard_Mode_Button = pygame_widgets.button.Button(self.scr, 525,100, 218, 100)
-        self.fullscreen_button = pygame_widgets.button.Button(self.scr, 775, 100, 218, 100)
+        self.Easy_Mode_Button = pygame_widgets.button.Button(self.scr, 25, 50, 218, 100, image=self.Easy_Mode_img,
+                                                             onRelease=test)
+        self.Medium_Mode_Button = pygame_widgets.button.Button(self.scr, 275, 50, 218, 100)
+        self.Hard_Mode_Button = pygame_widgets.button.Button(self.scr, 525, 50, 218, 100)
+        self.fullscreen_button = pygame_widgets.button.Button(self.scr, 775, 50, 218, 100)
 
     def draw(self):
         self.Easy_Mode_Button.draw()
