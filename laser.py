@@ -5,12 +5,8 @@ import sys
 from sound_box import get_sound_box
 from animated_sprite import AnimatedSprite
 
-if  '--easymode' in sys.argv:
-    CHARGE_MAX = 30
-elif '--hardmode' in sys.argv:
-    CHARGE_MAX = 55
-else:
-    CHARGE_MAX = 50
+
+CHARGE_MAX = 50
 
 LASER_FRAME_COLS = 4
 LASER_FRAME_ROWS = 3

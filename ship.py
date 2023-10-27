@@ -12,7 +12,6 @@ import sys
 SHIP_FILE = 'ship.png'
 LASER_OFFSET_X = 4
 LASER_OFFSET_Y = 64
-
 JET_FILE = 'jet.png'
 JET_FRAME_COLS = 8
 JET_FRAME_ROWS = 4

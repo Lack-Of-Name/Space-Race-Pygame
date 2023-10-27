@@ -7,13 +7,6 @@ from map import map_read
 
 speed_difficulty = 0
 
-if '--easymode' in sys.argv:
-    speed_difficulty = speed_difficulty - 1
-elif '--hardmode' in sys.argv:
-    speed_difficulty = speed_difficulty + 9
-else:
-    speed_difficulty = 0
-
 LEVELS = (
     {
     'mapfile': 'track_01.map',
