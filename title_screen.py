@@ -31,14 +31,20 @@ def test():
 class Title_Buttons():
     def __init__(self, scr):
         self.scr = scr
-        self.Easy_Mode_img = pygame.image.load("img/Button_Textures_Landscape_Rectangle.png")
+        self.Easy_Mode_img = pygame.image.load("img/Buttons/Easy Button - Dark.png")
         self.Easy_Mode_img = pygame.transform.scale(self.Easy_Mode_img, (218, 100))
+        self.Medium_Mode_img = pygame.image.load("img/Buttons/Medium Button - Dark.png")
+        self.Medium_Mode_img = pygame.transform.scale(self.Medium_Mode_img, (218, 100))
+        self.Hard_Mode_img = pygame.image.load("img/Buttons/Hard Button - Dark.png")
+        self.Hard_Mode_img = pygame.transform.scale(self.Hard_Mode_img, (218, 100))
+        self.Fullscreen_img = pygame.image.load("img/Buttons/Fullscreen - Dark.png")
+        self.Fullscreen_img = pygame.transform.scale(self.Fullscreen_img, (218, 100))
         # create buttons
         self.Easy_Mode_Button = pygame_widgets.button.Button(self.scr, 25, 50, 218, 100, image=self.Easy_Mode_img,
                                                              onRelease=test)
-        self.Medium_Mode_Button = pygame_widgets.button.Button(self.scr, 275, 50, 218, 100)
-        self.Hard_Mode_Button = pygame_widgets.button.Button(self.scr, 525, 50, 218, 100)
-        self.fullscreen_button = pygame_widgets.button.Button(self.scr, 775, 50, 218, 100)
+        self.Medium_Mode_Button = pygame_widgets.button.Button(self.scr, 275, 50, 218, 100, image=self.Medium_Mode_img)
+        self.Hard_Mode_Button = pygame_widgets.button.Button(self.scr, 525, 50, 218, 100, image=self.Hard_Mode_img)
+        self.fullscreen_button = pygame_widgets.button.Button(self.scr, 775, 50, 218, 100, image=self.Fullscreen_img)
 
     def draw(self):
         self.Easy_Mode_Button.draw()
