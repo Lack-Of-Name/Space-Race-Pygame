@@ -1,3 +1,4 @@
 # Ignore venv and .idea.
 .idea/
 venv/
+__pycache__/
