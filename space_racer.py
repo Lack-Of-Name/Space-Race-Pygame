@@ -22,6 +22,7 @@ from asteroids import Asteroids
 from stars import Stars
 from loading_screen import LoadingScreen
 from title_screen import TitleScreen
+from title_screen import Title_Buttons
 from level_start_screen import LevelStartScreen
 from level_complete_effect import LevelCompleteEffect
 from game_over_effect import GameOverEffect
@@ -268,6 +269,9 @@ class SpaceRacer():
     def _draw_objects(self):
         if self.state == STATE_TITLE:
             self.title_screen.draw()
+            self.Easy_Mode_Button.draw()
+            self.Medium_Mode_Button.draw()
+            self.Hard_Mode_Button.draw()
 
         if self.state == STATE_PAUSE:
             self.pause_screen.draw()
