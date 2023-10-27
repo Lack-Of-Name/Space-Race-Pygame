@@ -6,6 +6,6 @@ TODO Completed tasks will have an 'X' before their number
 1: Endless track generation - likely requires an engine for testing if the track is possible, can simply use text for map-making
 **Note** use list of premade tracks and randomise the order
 
-2: Multiplayer capability - split screen, points awarded to player for finishing track seconds before other player - next track loading waits for both players to finish
+2: Multiplayer capability - split screen, points awarded to player for finishing track seconds before other player - next track loading waits for both players to finish - start with 2 players on the same device, then possibly expand to IP/Port based multiplayer
 
-3: Buttons on title screen to switch from easy/medium/hard mode without using system arg variables
+3: Buttons on title screen to switch from easy/medium/hard mode without using system arg variables - possibly add a fullscreen button with it
