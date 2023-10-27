@@ -76,6 +76,7 @@ class SpaceRacer():
         self.asteroids = Asteroids(self.scr, self.view_pt, self.explosions,
                                    self.track)
         self.title_screen = TitleScreen(self.scr, self.view_pt, self.stars)
+        self.title_button = Title_Buttons(self.scr)
         self.level_start_screen = LevelStartScreen(self.scr)
         self.level_complete_effect = LevelCompleteEffect(self.scr)
         self.game_over_effect = GameOverEffect(self.scr)
@@ -271,9 +272,7 @@ class SpaceRacer():
     def _draw_objects(self):
         if self.state == STATE_TITLE:
             self.title_screen.draw()
-            self.Easy_Mode_Button.draw()
-            self.Medium_Mode_Button.draw()
-            self.Hard_Mode_Button.draw()
+            self.title_button.draw()
 
         if self.state == STATE_PAUSE:
             self.pause_screen.draw()
