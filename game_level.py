@@ -7,13 +7,6 @@ from map import map_read
 
 speed_difficulty = 0
 
-if '--easymode' in sys.argv:
-    speed_difficulty = speed_difficulty - 1
-elif '--hardmode' in sys.argv:
-    speed_difficulty = speed_difficulty + 9
-else:
-    speed_difficulty = 0
-
 LEVELS = (
     {
     'mapfile': 'track_01.map',
@@ -21,7 +14,7 @@ LEVELS = (
     'music': 'level_01.ogg',
     'description': 'WALK IN THE PARK',
     'asteroids': 0,
-    'speed': 6 + speed_difficulty,
+    'speed': 6,
     'acceleration': 0,
     },
     {
@@ -30,7 +23,7 @@ LEVELS = (
     'music': 'level_02.ogg',
     'description': 'SLOW DOWN!',
     'asteroids': 0,
-    'speed': 6 + speed_difficulty,
+    'speed': 6,
     'acceleration': 0,
     },
     {
@@ -39,7 +32,7 @@ LEVELS = (
     'music': 'level_03.ogg',
     'description': 'ASTEROID FIELD. FLY FAST AND DO NOT STOP!',
     'asteroids': 5,
-    'speed': 6 + speed_difficulty,
+    'speed': 6,
     'acceleration': 1.0E-5,
     },
     {
@@ -48,7 +41,7 @@ LEVELS = (
     'music': 'level_04.ogg',
     'description': 'BLAST YOUR WAY OUT!',
     'asteroids': 0,
-    'speed': 8 + speed_difficulty,
+    'speed': 8,
     'acceleration': 0,
     },
     {
@@ -57,7 +50,7 @@ LEVELS = (
     'music': 'level_05.ogg',
     'description': 'SERPENTINE',
     'asteroids': 0,
-    'speed': 8 + speed_difficulty,
+    'speed': 8,
     'acceleration': 0,
     },
     {
@@ -66,7 +59,7 @@ LEVELS = (
     'music': 'level_06.ogg',
     'description': "ACCELERATE! DON'T SLOW DOWN!",
     'asteroids': 0,
-    'speed': 6 + speed_difficulty,
+    'speed': 6,
     'acceleration': 1.0E-5,
     },
     )
@@ -125,7 +118,7 @@ class GameLevel():
 
     def get_ship_speed(self):
         """Returns ship vertical constant speed for current level."""
-        return LEVELS[self.level]['speed']
+        return LEVELS[self.level]['speed'] + speed_difficulty
 
     def get_ship_acceleration(self):
         """Returns ship vertical acceleration for current level."""

@@ -1,12 +1,15 @@
 """Main program module. It pulls all other game modules together and
 ensures running the game."""
 import sys
+import os
 from random import randint
 from statistics import mean
 
 import pygame
+import pygame_widgets
 import pygame.mixer
 from pygame.time import Clock
+from pygame_widgets import *
 
 import sound_box
 from view_point import ViewPoint
@@ -22,16 +25,12 @@ from asteroids import Asteroids
 from stars import Stars
 from loading_screen import LoadingScreen
 from title_screen import TitleScreen
+from title_screen import Title_Buttons
 from level_start_screen import LevelStartScreen
 from level_complete_effect import LevelCompleteEffect
 from game_over_effect import GameOverEffect
 from pause_screen import PauseScreen
 from ending_screen import EndingScreen
-
-if '--fullscreen' in sys.argv:
-    VID_MODE_FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
-else:
-    VID_MODE_FLAGS = 0
 
 SCREEN_SIZE = (1024, 768)
 WINDOW_CAPTION = "SPACE RACER"
@@ -48,8 +47,10 @@ STATE_LEVEL_FINISHING = 4
 STATE_GAME_OVER = 5
 STATE_ENDING = 6
 
+
 class SpaceRacer():
     """Represents the game itself"""
+
     def __init__(self):
         """Creates all game objects needed, loads resources, initializes
         pygame library and sound mixer, sets display mode, etc."""
@@ -57,7 +58,7 @@ class SpaceRacer():
         pygame.mixer.pre_init(buffer=SOUND_BUFFER)
         pygame.init()
         self.clock = Clock()
-        self.scr = pygame.display.set_mode(SCREEN_SIZE, VID_MODE_FLAGS)
+        self.scr = pygame.display.set_mode(SCREEN_SIZE)
         pygame.display.set_caption(WINDOW_CAPTION)
         pygame.mouse.set_visible(False)
         LoadingScreen(self.scr).draw()
@@ -73,6 +74,7 @@ class SpaceRacer():
         self.asteroids = Asteroids(self.scr, self.view_pt, self.explosions,
                                    self.track)
         self.title_screen = TitleScreen(self.scr, self.view_pt, self.stars)
+        self.title_button = Title_Buttons(self.scr)
         self.level_start_screen = LevelStartScreen(self.scr)
         self.level_complete_effect = LevelCompleteEffect(self.scr)
         self.game_over_effect = GameOverEffect(self.scr)
@@ -100,10 +102,11 @@ class SpaceRacer():
         self.title_screen.restart()
         self.title_screen.play_music()
 
-    def _init_level_starting(self):
+    def _init_level_starting(self): 
         self.state = STATE_LEVEL_STARTING
         self.level_start_screen.set_level_number(self.level.get_level())
         self.level_start_screen.set_subtitle_text(self.level.get_description())
+        self.stats.reset()
         self.level_start_screen.restart()
 
     def _init_level_playing(self):
@@ -114,8 +117,8 @@ class SpaceRacer():
         self.track.set_tile_map(self.level.get_map())
 
         top_limit = (self.track.get_track_height() -
-                     self.scr.get_rect().height/2)
-        bottom_limit = self.scr.get_rect().height/2
+                     self.scr.get_rect().height / 2)
+        bottom_limit = self.scr.get_rect().height / 2
         self.view_pt.set_limits(top=top_limit, bottom=bottom_limit)
 
         self.explosions.items.empty()
@@ -235,7 +238,7 @@ class SpaceRacer():
 
     def _crossed_finish_line(self):
         finish_line_y = (self.track.get_track_height() -
-                         self.scr.get_rect().height/2)
+                         self.scr.get_rect().height / 2)
         return self.ship.y > finish_line_y
 
     def _interact_objects(self):
@@ -268,16 +271,19 @@ class SpaceRacer():
     def _draw_objects(self):
         if self.state == STATE_TITLE:
             self.title_screen.draw()
+            self.title_button.draw()
+            pygame.mouse.set_visible(True)
+            pygame_widgets.update(pygame.event.get())
 
         if self.state == STATE_PAUSE:
             self.pause_screen.draw()
 
         if self.state == STATE_LEVEL_STARTING:
             self.level_start_screen.draw()
+            pygame.mouse.set_visible(False)
 
         if self.state in (STATE_LEVEL_PLAYING, STATE_LEVEL_FINISHING,
                           STATE_GAME_OVER):
-
             self.scr.blit(self.level.get_background(), (0, 0))
             self.stars.draw()
             self.track.draw()
@@ -294,7 +300,6 @@ class SpaceRacer():
 
         if self.state == STATE_ENDING:
             self.ending_screen.draw()
-
         pygame.display.flip()
 
     def _ship_explode(self, collide_point=None):
@@ -343,4 +348,3 @@ class SpaceRacer():
 
 if __name__ == '__main__':
     SpaceRacer().run()
-
