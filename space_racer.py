@@ -102,7 +102,7 @@ class SpaceRacer():
         self.title_screen.restart()
         self.title_screen.play_music()
 
-    def _init_level_starting(self):
+    def _init_level_starting(self): 
         self.state = STATE_LEVEL_STARTING
         self.level_start_screen.set_level_number(self.level.get_level())
         self.level_start_screen.set_subtitle_text(self.level.get_description())
