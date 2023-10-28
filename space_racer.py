@@ -37,6 +37,7 @@ WINDOW_CAPTION = "SPACE RACER"
 FRAMERATE = 60
 SOUND_BUFFER = 512
 MUSIC_FADEOUT = 2000
+VID_MODE_FLAGS = pygame.SCALED
 
 # Each of the following constants represents continuous game state
 STATE_TITLE = 0
@@ -58,7 +59,7 @@ class SpaceRacer():
         pygame.mixer.pre_init(buffer=SOUND_BUFFER)
         pygame.init()
         self.clock = Clock()
-        self.scr = pygame.display.set_mode(SCREEN_SIZE)
+        self.scr = pygame.display.set_mode(SCREEN_SIZE, VID_MODE_FLAGS)
         pygame.display.set_caption(WINDOW_CAPTION)
         pygame.mouse.set_visible(False)
         LoadingScreen(self.scr).draw()

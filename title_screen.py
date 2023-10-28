@@ -98,10 +98,10 @@ class Title_Buttons():
 
     def set_fullscreen(self):
         if self.fullscreen:
-            VID_MODE_FLAGS = 0
-            self.fullscreen = False
+            VID_MODE_FLAGS = pygame.SCALED
+            self.fullscreen = False 
         else:
-            VID_MODE_FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
+            VID_MODE_FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE | pygame.SCALED
             self.fullscreen = True
 
         self.scr = pygame.display.set_mode((1024, 768), VID_MODE_FLAGS)
