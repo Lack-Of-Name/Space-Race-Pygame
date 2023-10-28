@@ -8,4 +8,10 @@ TODO Completed tasks will have an 'X' before their number
 
 2: Multiplayer capability - split screen, points awarded to player for finishing track seconds before other player - next track loading waits for both players to finish - start with 2 players on the same device, then possibly expand to IP/Port based multiplayer
 
+<<<<<<< Updated upstream
 3: Buttons on title screen to switch from easy/medium/hard mode without using system arg variables - possibly add a fullscreen button with it
+=======
+X  3: Buttons on title screen to switch from easy/medium/hard mode without using system arg variables - possibly add a fullscreen button with it (now possibly resize them)
+
+4: Press the 'V' button or some other key to speed up time by 20% - Lack-Of-Name
+>>>>>>> Stashed changes

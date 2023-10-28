@@ -175,6 +175,7 @@ class SpaceRacer():
         return key_processed
 
     def _process_events(self):
+        v_key_pressed = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -191,9 +192,23 @@ class SpaceRacer():
                 if event.type == pygame.KEYDOWN:
                     if event.key in (pygame.K_ESCAPE, pygame.K_PAUSE):
                         self.state = STATE_LEVEL_PLAYING
+                    elif event.key == pygame.K_v:
+                        # Keydown event for "v" key
+                        v_key_pressed = True
+                        # Add your keydown code for the "v" key here
                         pygame.mixer.music.unpause()
                     elif event.key == pygame.K_RETURN:
                         sys.exit()
+                    else:
+                        self._ship_control(event.key, control_status=True)
+                elif event.type == pygame.KEYUP:
+                    if event.key == pygame.K_v:
+                        # Keyup event for "v" key
+                        v_key_pressed = False
+                        # Add your keyup code for the "v" key here
+                    else:
+                        self._ship_control(event.key, control_status=False)
+                        v_key_pressed = False
 
             elif self.state == STATE_LEVEL_PLAYING:
                 if event.type == pygame.KEYDOWN:
@@ -210,6 +225,12 @@ class SpaceRacer():
                         sys.exit()
                     elif event.key == pygame.K_RETURN:
                         self._init_title()
+        if v_key_pressed == True:
+            # Handle "v" key being pressed (keydown)
+            print("The 'v' key is currently pressed.")
+        else:
+            # Handle "v" key being released (keyup)
+            print("The 'v' key is currently released.")
 
     def _update_objects(self):
         if self.state == STATE_TITLE:
