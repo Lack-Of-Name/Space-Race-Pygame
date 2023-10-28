@@ -13,5 +13,5 @@ TODO Completed tasks will have an 'X' before their number
 =======
 X  3: Buttons on title screen to switch from easy/medium/hard mode without using system arg variables - possibly add a fullscreen button with it (now possibly resize them)
 
-4: Press the 'V' button or some other key to speed up time by 20% - Lack-Of-Name
+4: Press the 'V' button or some other key to speed up time by 50% - note: is difficult due to circular imports
 >>>>>>> Stashed changes
