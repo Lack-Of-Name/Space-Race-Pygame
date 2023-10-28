@@ -37,7 +37,6 @@ WINDOW_CAPTION = "SPACE RACER"
 FRAMERATE = 60
 SOUND_BUFFER = 512
 MUSIC_FADEOUT = 2000
-v_key_pressed = False
 
 # Each of the following constants represents continuous game state
 STATE_TITLE = 0
@@ -85,13 +84,15 @@ class SpaceRacer():
         self._init_title()
 
     def run(self):
+
         """The only public method just runs the game. It starts infinite
         loop where game objects are updated, drawn and interacts with
         each other. Also system events are processed."""
+        overclock = 0
         while True:
-            self.clock.tick(FRAMERATE)
+            self.clock.tick(FRAMERATE + overclock)  # Update FRAMERATE here
             # print(f"FPS: {round(self.clock.get_fps(), 2)}")
-            self._process_events()
+            self._process_events(overclock)  # Pass extra_clock_speed
             self._update_objects()
             self._interact_objects()
             self._draw_objects()
@@ -111,7 +112,6 @@ class SpaceRacer():
         self.level_start_screen.restart()
 
     def _init_level_playing(self):
-        self.v_key_pressed = True
         self.state = STATE_LEVEL_PLAYING
         self.level.play_music()
         self.view_pt.reset()
@@ -176,7 +176,7 @@ class SpaceRacer():
 
         return key_processed
 
-    def _process_events(self):
+    def _process_events(self, overclock):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -206,14 +206,13 @@ class SpaceRacer():
                     if event.key in (pygame.K_ESCAPE, pygame.K_PAUSE):
                         self._init_pause()
                     elif event.key == pygame.K_v:
-                        self.v_key_pressed = True
+                        overclock = True  # Increase speed when 'v' is pressed
                     else:
                         self._ship_control(event.key, control_status=True)
                 elif event.type == pygame.KEYUP:
                     self._ship_control(event.key, control_status=False)
                     if event.key == pygame.K_v:
-                        self.v_key_pressed = False
-
+                        overclock = False  # Reset speed when 'v' is released
 
             if self.state == STATE_ENDING:
                 if event.type == pygame.KEYDOWN:
