@@ -48,13 +48,16 @@ STATE_LEVEL_FINISHING = 4
 STATE_GAME_OVER = 5
 STATE_ENDING = 6
 
+global overclock
+
 
 class SpaceRacer():
     """Represents the game itself"""
 
-    def __init__(self):
-        """Creates all game objects needed, loads resources, initializes
+    def __init__(self, overclock):
+        """Creates all game objects needed, passes overclock, loads resources, initializes
         pygame library and sound mixer, sets display mode, etc."""
+        self.overclock = overclock
         self.state = STATE_TITLE
         pygame.mixer.pre_init(buffer=SOUND_BUFFER)
         pygame.init()
@@ -89,7 +92,6 @@ class SpaceRacer():
         """The only public method just runs the game. It starts infinite
         loop where game objects are updated, drawn and interacts with
         each other. Also system events are processed."""
-        overclock = 0
         while True:
             self.clock.tick(FRAMERATE + overclock)  # Update FRAMERATE here
             # print(f"FPS: {round(self.clock.get_fps(), 2)}")
@@ -207,13 +209,13 @@ class SpaceRacer():
                     if event.key in (pygame.K_ESCAPE, pygame.K_PAUSE):
                         self._init_pause()
                     elif event.key == pygame.K_v:
-                        overclock = True  # Increase speed when 'v' is pressed
+                        self.overclock = True  # Increase speed when 'v' is pressed
                     else:
                         self._ship_control(event.key, control_status=True)
                 elif event.type == pygame.KEYUP:
                     self._ship_control(event.key, control_status=False)
                     if event.key == pygame.K_v:
-                        overclock = False  # Reset speed when 'v' is released
+                        self.overclock = False  # Reset speed when 'v' is released
 
             if self.state == STATE_ENDING:
                 if event.type == pygame.KEYDOWN:
@@ -358,4 +360,4 @@ class SpaceRacer():
 
 
 if __name__ == '__main__':
-    SpaceRacer().run()
+    SpaceRacer(overclock).run()
