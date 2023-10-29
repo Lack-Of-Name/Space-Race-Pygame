@@ -1,3 +1,5 @@
+# TODO
+
 """Module providing data and settings for game levels."""
 import pygame
 import pygame.mixer
@@ -7,68 +9,71 @@ from map import map_read
 
 speed_difficulty = 0
 
-LEVELS = (
-    {
-    'mapfile': 'track_01.map',
-    'background': 'bg_01.png',
-    'music': 'level_01.ogg',
-    'description': 'WALK IN THE PARK',
-    'asteroids': 0,
-    'speed': 6,
-    'acceleration': 0,
-    },
-    {
-    'mapfile': 'track_02.map',
-    'background': 'bg_02.png',
-    'music': 'level_02.ogg',
-    'description': 'SLOW DOWN!',
-    'asteroids': 0,
-    'speed': 6,
-    'acceleration': 0,
-    },
-    {
-    'mapfile': 'track_03.map',
-    'background': 'bg_03.png',
-    'music': 'level_03.ogg',
-    'description': 'ASTEROID FIELD. FLY FAST AND DO NOT STOP!',
-    'asteroids': 5,
-    'speed': 6,
-    'acceleration': 1.0E-5,
-    },
-    {
-    'mapfile': 'track_04.map',
-    'background': 'bg_04.png',
-    'music': 'level_04.ogg',
-    'description': 'BLAST YOUR WAY OUT!',
-    'asteroids': 0,
-    'speed': 8,
-    'acceleration': 0,
-    },
-    {
-    'mapfile': 'track_05.map',
-    'background': 'bg_05.png',
-    'music': 'level_05.ogg',
-    'description': 'SERPENTINE',
-    'asteroids': 0,
-    'speed': 8,
-    'acceleration': 0,
-    },
-    {
-    'mapfile': 'track_06.map',
-    'background': 'bg_06.png',
-    'music': 'level_06.ogg',
-    'description': "ACCELERATE! DON'T SLOW DOWN!",
-    'asteroids': 0,
-    'speed': 6,
-    'acceleration': 1.0E-5,
-    },
-    )
+global LEVELS
 
 class GameLevel():
     """The class loads data for game level and keeps level-wide settings
     and parameters."""
     def __init__(self):
         self.restart()
+
+    def LEVELS(self):
+        LEVELS = (
+        {
+        'mapfile': 'track_01.map',
+        'background': 'bg_01.png',
+        'music': 'level_01.ogg',
+        'description': 'WALK IN THE PARK',
+        'asteroids': 0,
+        'speed': 6,
+        'acceleration': 0,
+        },
+        {
+        'mapfile': 'track_02.map',
+        'background': 'bg_02.png',
+        'music': 'level_02.ogg',
+        'description': 'SLOW DOWN!',
+        'asteroids': 0,
+        'speed': 6,
+        'acceleration': 0,
+        },
+        {
+        'mapfile': 'track_03.map',
+        'background': 'bg_03.png',
+        'music': 'level_03.ogg',
+        'description': 'ASTEROID FIELD. FLY FAST AND DO NOT STOP!',
+        'asteroids': 5,
+        'speed': 6,
+        'acceleration': 1.0E-5,
+        },
+        {
+        'mapfile': 'track_04.map',
+        'background': 'bg_04.png',
+        'music': 'level_04.ogg',
+        'description': 'BLAST YOUR WAY OUT!',
+        'asteroids': 0,
+        'speed': 8,
+        'acceleration': 0,
+        },
+        {
+        'mapfile': 'track_05.map',
+        'background': 'bg_05.png',
+        'music': 'level_05.ogg',
+        'description': 'SERPENTINE',
+        'asteroids': 0,
+        'speed': 8,
+        'acceleration': 0,
+        },
+        {
+        'mapfile': 'track_06.map',
+        'background': 'bg_06.png',
+        'music': 'level_06.ogg',
+        'description': "ACCELERATE! DON'T SLOW DOWN!",
+        'asteroids': 0,
+        'speed': 6,
+        'acceleration': 1.0E-5,
+        },
+        )
 
     def _reload(self):
         map_read_result = map_read(f"map/{LEVELS[self.level]['mapfile']}")
