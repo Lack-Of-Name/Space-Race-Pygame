@@ -59,7 +59,7 @@ class SpaceRacer():
         pygame.mixer.pre_init(buffer=SOUND_BUFFER)
         pygame.init()
         self.clock = Clock()
-        self.scr = pygame.display.set_mode(SCREEN_SIZE, VID_MODE_FLAGS)
+        self.scr = pygame.display.set_mode(SCREEN_SIZE)
         pygame.display.set_caption(WINDOW_CAPTION)
         pygame.mouse.set_visible(False)
         LoadingScreen(self.scr).draw()
