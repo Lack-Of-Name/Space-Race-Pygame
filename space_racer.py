@@ -85,11 +85,10 @@ class SpaceRacer():
         self._init_title()
 
     def run(self):
-
-        """The only public method just runs the game. It starts infinite
-        loop where game objects are updated, drawn and interacts with
-        each other. Also system events are processed."""
-        overclock = 0
+        """The only public method just runs the game. It starts an infinite
+        loop where game objects are updated, drawn and interact with
+        each other. System events are also processed."""
+        overclock = False
         while True:
             self.clock.tick(FRAMERATE + overclock)  # Update FRAMERATE here
             # print(f"FPS: {round(self.clock.get_fps(), 2)}")
