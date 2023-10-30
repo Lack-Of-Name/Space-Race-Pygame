@@ -14,8 +14,8 @@ from pygame_widgets import *
 import sound_box
 from view_point import ViewPoint
 from track import Track
+import game_level
 from game_level import GameLevel
-from game_level import LEVELS
 from game_stats import GameStats
 from game_stats import ASTEROID_HIT_PTS, LEVEL_COMPLETE_PTS, EXTRA_LIFE_PTS
 from ship import Ship
@@ -35,7 +35,7 @@ from ending_screen import EndingScreen
 
 SCREEN_SIZE = (1024, 768)
 WINDOW_CAPTION = "SPACE RACER"
-FRAMERATE = 100
+FRAMERATE = 60
 SOUND_BUFFER = 512
 MUSIC_FADEOUT = 2000
 VID_MODE_FLAGS = pygame.SCALED
@@ -51,13 +51,16 @@ STATE_ENDING = 6
 
 global overclock
 
-#class Gamelevel:  TODO
-#        def get_ship_speed(self):  TODO
-#            """Returns ship vertical constant speed for current level."""  TODO
-#            return LEVELS[self.level]['speed'] + speed_difficulty  TODO
 
-class SpaceRacer():
+class SpaceRacer:
     """Represents the game itself"""
+    overclock = False
+
+    class Gamelevel:
+        @property
+        def get_ship_speed(self):
+            """Returns ship vertical constant speed for current level."""
+            return game_level.LEVELS[game_level.level]['speed'] + game_level.speed_difficulty
 
     def __init__(self):
         """Creates all game objects needed, loads resources, initializes
@@ -98,7 +101,7 @@ class SpaceRacer():
         while True:
             self.clock.tick(FRAMERATE)  # Update FRAMERATE here
             # print(f"FPS: {round(self.clock.get_fps(), 2)}")
-            self._process_events(overclock)  # Pass extra_clock_speed
+            self._process_events()  # Pass extra_clock_speed
             self._update_objects()
             self._interact_objects()
             self._draw_objects()
@@ -110,7 +113,7 @@ class SpaceRacer():
         self.title_screen.restart()
         self.title_screen.play_music()
 
-    def _init_level_starting(self): 
+    def _init_level_starting(self):
         self.state = STATE_LEVEL_STARTING
         self.level_start_screen.set_level_number(self.level.get_level())
         self.level_start_screen.set_subtitle_text(self.level.get_description())
@@ -182,7 +185,7 @@ class SpaceRacer():
 
         return key_processed
 
-    def _process_events(self, overclock):
+    def _process_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -212,14 +215,14 @@ class SpaceRacer():
                     if event.key in (pygame.K_ESCAPE, pygame.K_PAUSE):
                         self._init_pause()
                     elif event.key == pygame.K_v:
-                        overclock = 1  # Increase speed when 'v' is pressed
+                        overclock = True  # Increase speed when 'v' is pressed
                         print(overclock)
                     else:
                         self._ship_control(event.key, control_status=True)
                 elif event.type == pygame.KEYUP:
                     self._ship_control(event.key, control_status=False)
                     if event.key == pygame.K_v:
-                        overclock = 0  # Reset speed when 'v' is released
+                        overclock = False  # Reset speed when 'v' is released
                         print(overclock)
 
             if self.state == STATE_ENDING:
@@ -228,6 +231,14 @@ class SpaceRacer():
                         sys.exit()
                     elif event.key == pygame.K_RETURN:
                         self._init_title()
+
+    if overclock:
+        game_level.speed_difficulty += 5
+        print(game_level.speed_difficulty)
+    elif not overclock:
+        game_level.speed_difficulty
+        overclock = 0
+        print(game_level.speed_difficulty)
 
     def _update_objects(self):
         if self.state == STATE_TITLE:

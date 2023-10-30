@@ -1,5 +1,3 @@
-# TODO
-
 """Module providing data and settings for game levels."""
 import pygame
 import pygame.mixer
@@ -7,18 +5,7 @@ import sys
 
 from map import map_read
 
-speed_difficulty = 0
-
-global LEVELS
-
-class GameLevel():
-    """The class loads data for game level and keeps level-wide settings
-    and parameters."""
-    def __init__(self):
-        self.restart()
-
-    def LEVELS(self):
-        LEVELS = (
+LEVELS = (
         {
         'mapfile': 'track_01.map',
         'background': 'bg_01.png',
@@ -74,6 +61,15 @@ class GameLevel():
         'acceleration': 1.0E-5,
         },
         )
+
+speed_difficulty = 0
+
+
+class GameLevel:
+    """The class loads data for game level and keeps level-wide settings
+    and parameters."""
+    def __init__(self):
+        self.restart()
 
     def _reload(self):
         map_read_result = map_read(f"map/{LEVELS[self.level]['mapfile']}")
